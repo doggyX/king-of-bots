@@ -18,20 +18,14 @@ public class BotInfoController {
         return "hello";
     }*/
 
-    public List<Map<String,String>> getBotInfo() {
-        List<Map<String,String>> mapList = new LinkedList<>();
-        Map<String,String> map1 = new HashMap<>();
-        Map<String,String> map2 = new HashMap<>();
+    public Map<String,String> getBotInfo() {
+        Map<String,String> bot1 = new HashMap<>();
 
-        map1.put("name","lx");
-        map1.put("age","20");
 
-        map2.put("name","yx");
-        map2.put("age","26");
+        bot1.put("name","tiger");
+        bot1.put("rating","1500");
 
-        mapList.add(map1);
-        mapList.add(map2);
 
-        return mapList;
+        return bot1;
     }
 }
