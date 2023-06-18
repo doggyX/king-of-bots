@@ -1,45 +1,71 @@
 <template>
- <div>
-  <div>Bot 昵称：{{ bot_name }}</div>
-  <div>Bot 战力：{{ bot_rating }}</div>
-
- </div>
-  <router-view/>
+  <NavBar />
+  <router-view></router-view>
 </template>
 
 <script>
-import $ from 'jquery'; 
-import { ref } from 'vue';
+import NavBar from './components/NavBar.vue'
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap"
 
-export default {  //  相当于创建了一个vue实例-同学说的
-  name: "App",
-  setup: () => { // 整个函数的入口
-    let bot_name = ref("");
-    let bot_rating = ref("");
+export default {
+  components: {
+    NavBar
+  },
+  setup() {
+    // $.ajax({
+    //   url: "http://localhost:3000/user/account/token/",
+    //   type: "post",
+    //   data: {
+    //     username: 'dx',
+    //     password: '12345'
+    //   },
+    //   success(resp) {
+    //     console.log(resp);
+    //   },
+    //   error(resp) {
+    //     console.log(resp);
+    //   }
+    // });
 
-    $.ajax({
-      url: "http://127.0.0.1:3000/pk/getBotInfo/",
-      type: "get",
-      success: resp => {
-        //console.log(resp); // resp这一波就拿到了getBotInfo的内容
-        bot_name.value = resp.name;
-        bot_rating.value = resp.rating;
-      }
-    })
+    // $.ajax({
+    //   url: "http://localhost:3000/user/account/info/",
+    //   type: "get",
+    //   headers: {
+    //     Authorization: "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1YWZiNmZhZGU2Nzk0NGY3OWUyNjJiNWM0ZWJjYzY1NyIsInN1YiI6IjEiLCJpc3MiOiJzZyIsImlhdCI6MTY4Njk4NTE1MywiZXhwIjoxNjg4MTk0NzUzfQ.9siQPj2oWF8HGHyYBs1V3betfjCeL7v-TXlHiae1A9M"
+    //     // 授权  Authentication 认证
 
-    return {
-      bot_name,
-      bot_rating
-    }
+    //   },
+    //   success(resp) {
+    //     console.log(resp);
+    //   },
+    //   error(resp) {
+    //     console.log(resp);
+    //   }
+
+    // });
+    // $.ajax({
+    //   url: "http://localhost:3000/user/account/register/",
+    //   type: "post",
+    //   data: {
+    //     username: "doggyx",
+    //     password: "12345",
+    //     confirmedPassword:"12345"
+    //   },
+    //   success(resp) {
+    //     console.log(resp);
+    //   },
+    //   error(resp) {
+    //     console.log(resp);
+    //   }
+    // })
   }
 }
 </script>
 
 <style>
 body {
-  background-image: url("@/assets/background.png");  
-  background-size: cover; 
-  /* 百分百填充 */
-  /* @/ 表示根目录 */
+  background-image: url("@/assets/images/background.png");
+  background-size: cover;
 }
 </style>
